@@ -20,9 +20,7 @@ export class ContextInjector {
       const results = await this.fetchSearch(projectPath, maxResults);
       if (results.length === 0) return null;
 
-      const lines = results.map(
-        (r) => `- [${r.type}] ${r.created_at}: ${r.snippet}`,
-      );
+      const lines = results.map((r) => `- [${r.type}] ${r.created_at}: ${r.snippet}`);
       return `## Previous Context (from copilot-mem)\n${lines.join('\n')}`;
     } catch {
       this.outputChannel.appendLine('Failed to fetch context for injection');

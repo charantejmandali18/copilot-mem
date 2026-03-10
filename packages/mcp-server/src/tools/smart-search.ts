@@ -36,9 +36,7 @@ export function registerSmartSearchTool(server: McpServer, core: Core): void {
         const matchingResult = results.find((r) => r.id === obs.id);
         const score = matchingResult ? ` (score: ${matchingResult.score.toFixed(2)})` : '';
         const meta = obs.metadata ? `\n  Metadata: ${JSON.stringify(obs.metadata)}` : '';
-        parts.push(
-          `--- ${obs.type} | ${obs.created_at}${score} ---\n${obs.content}${meta}\n`,
-        );
+        parts.push(`--- ${obs.type} | ${obs.created_at}${score} ---\n${obs.content}${meta}\n`);
       }
 
       return { content: [{ type: 'text' as const, text: parts.join('\n') }] };

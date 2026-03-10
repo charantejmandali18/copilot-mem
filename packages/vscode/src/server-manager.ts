@@ -87,7 +87,13 @@ export class ServerManager {
       const check = () => {
         attempts++;
         const req = http.request(
-          { hostname: 'localhost', port: this.port, path: '/api/sessions', method: 'GET', timeout: 500 },
+          {
+            hostname: 'localhost',
+            port: this.port,
+            path: '/api/sessions',
+            method: 'GET',
+            timeout: 500,
+          },
           (res) => {
             if (res.statusCode === 200) {
               resolve();

@@ -13,11 +13,7 @@ function corsHeaders(): Record<string, string> {
   };
 }
 
-function jsonResponse(
-  res: http.ServerResponse,
-  data: unknown,
-  status = 200,
-): void {
+function jsonResponse(res: http.ServerResponse, data: unknown, status = 200): void {
   res.writeHead(status, { 'Content-Type': 'application/json', ...corsHeaders() });
   res.end(JSON.stringify(data));
 }
@@ -31,10 +27,7 @@ function readBody(req: http.IncomingMessage): Promise<string> {
   });
 }
 
-export function createHttpServer(
-  core: Core,
-  logger: Logger,
-): http.Server {
+export function createHttpServer(core: Core, logger: Logger): http.Server {
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url ?? '/', `http://localhost`);
     const pathname = url.pathname;

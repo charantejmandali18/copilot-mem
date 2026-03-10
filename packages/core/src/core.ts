@@ -47,10 +47,7 @@ export class Core {
     return this.observations.create(input);
   }
 
-  searchMemories(
-    query: string,
-    opts?: { limit?: number; projectPath?: string },
-  ): SearchResult[] {
+  searchMemories(query: string, opts?: { limit?: number; projectPath?: string }): SearchResult[] {
     return this.search.search(query, opts);
   }
 
@@ -84,11 +81,7 @@ export class Core {
     return this.sessions.list(opts);
   }
 
-  getObservations(opts?: {
-    sessionId?: string;
-    type?: string;
-    limit?: number;
-  }): Observation[] {
+  getObservations(opts?: { sessionId?: string; type?: string; limit?: number }): Observation[] {
     return this.observations.list(opts);
   }
 

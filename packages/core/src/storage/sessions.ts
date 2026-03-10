@@ -7,9 +7,7 @@ export class SessionRepository {
 
   create(projectPath: string): Session {
     const id = uuidv4();
-    this.db
-      .prepare('INSERT INTO sessions (id, project_path) VALUES (?, ?)')
-      .run(id, projectPath);
+    this.db.prepare('INSERT INTO sessions (id, project_path) VALUES (?, ?)').run(id, projectPath);
     return this.get(id)!;
   }
 
