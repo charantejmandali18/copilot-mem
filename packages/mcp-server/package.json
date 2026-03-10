@@ -1,0 +1,20 @@
+{
+  "name": "@copilot-mem/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server and HTTP API for copilot-mem",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "copilot-mem-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && cp -r src/http/ui dist/http/ui",
+    "test": "vitest run",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@copilot-mem/core": "*",
+    "@modelcontextprotocol/sdk": "^1.24.0",
+    "zod": "^3.23.0"
+  }
+}

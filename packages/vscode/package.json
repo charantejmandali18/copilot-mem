@@ -1,0 +1,63 @@
+{
+  "name": "copilot-mem",
+  "displayName": "Copilot Mem",
+  "description": "Persistent memory for GitHub Copilot across chat sessions",
+  "version": "0.1.0",
+  "publisher": "copilot-mem",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": ["AI", "Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-mem.startServer",
+        "title": "Copilot Mem: Start Server"
+      },
+      {
+        "command": "copilot-mem.stopServer",
+        "title": "Copilot Mem: Stop Server"
+      },
+      {
+        "command": "copilot-mem.openViewer",
+        "title": "Copilot Mem: Open Memory Viewer"
+      },
+      {
+        "command": "copilot-mem.saveMemory",
+        "title": "Copilot Mem: Save Memory"
+      }
+    ],
+    "configuration": {
+      "title": "Copilot Mem",
+      "properties": {
+        "copilot-mem.autoCapture": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically capture Copilot Chat messages"
+        },
+        "copilot-mem.port": {
+          "type": "number",
+          "default": 37888,
+          "description": "HTTP server port"
+        },
+        "copilot-mem.contextInjection": {
+          "type": "boolean",
+          "default": true,
+          "description": "Inject relevant memories into new chat sessions"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'no tests yet'",
+    "dev": "tsc --watch",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
