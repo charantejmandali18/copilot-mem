@@ -1,4 +1,5 @@
 import * as http from 'node:http';
+import { IgnoreMatcher } from '../privacy/ignore-matcher.js';
 
 interface CaptureEvent {
   type: string;
@@ -19,6 +20,8 @@ export class BatchSender {
   }
 
   enqueue(event: CaptureEvent): void {
+    // Strip <private> tags before queueing
+    event.content = IgnoreMatcher.stripPrivateTags(event.content);
     this.queue.push(event);
     this.scheduleFlush();
   }

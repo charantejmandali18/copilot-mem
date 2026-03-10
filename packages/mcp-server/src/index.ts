@@ -20,8 +20,8 @@ async function main(): Promise<void> {
 
   // Start HTTP server
   const httpServer = createHttpServer(core, logger);
-  httpServer.listen(config.port, () => {
-    logger.info(`HTTP server listening on port ${config.port}`);
+  httpServer.listen(config.port, '127.0.0.1', () => {
+    logger.info(`HTTP server listening on 127.0.0.1:${config.port}`);
   });
 
   // Connect MCP via stdio

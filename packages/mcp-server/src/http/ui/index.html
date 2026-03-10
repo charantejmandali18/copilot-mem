@@ -68,16 +68,16 @@
 
     function renderObservation(obs) {
       const meta = obs.metadata ? JSON.parse(obs.metadata) : null;
-      const metaStr = meta ? `<div style="font-size:11px;color:#8b949e;margin-top:4px">${JSON.stringify(meta)}</div>` : '';
+      const metaStr = meta ? `<div style="font-size:11px;color:#8b949e;margin-top:4px">${escapeHtml(JSON.stringify(meta))}</div>` : '';
       return `<div class="card">
         <div class="card-header">
-          <span class="card-type ${obs.type}">${obs.type}</span>
-          <span class="card-time">${obs.created_at}</span>
+          <span class="card-type ${escapeHtml(obs.type)}">${escapeHtml(obs.type)}</span>
+          <span class="card-time">${escapeHtml(obs.created_at)}</span>
         </div>
         <div class="card-content">${escapeHtml(obs.content)}</div>
         ${metaStr}
         <div class="card-actions">
-          <button class="btn-delete" onclick="deleteObs('${obs.id}')">Delete</button>
+          <button class="btn-delete" onclick="deleteObs('${escapeHtml(obs.id)}')">Delete</button>
         </div>
       </div>`;
     }
@@ -85,8 +85,8 @@
     function renderSession(session) {
       return `<div class="card">
         <div class="card-header">
-          <span class="card-type">${session.project_path}</span>
-          <span class="card-time">${session.started_at}${session.ended_at ? ' → ' + session.ended_at : ' (active)'}</span>
+          <span class="card-type">${escapeHtml(session.project_path)}</span>
+          <span class="card-time">${escapeHtml(session.started_at)}${session.ended_at ? ' → ' + escapeHtml(session.ended_at) : ' (active)'}</span>
         </div>
         ${session.summary ? `<div class="card-content">${escapeHtml(session.summary)}</div>` : ''}
       </div>`;
@@ -128,8 +128,8 @@
       } else {
         el.innerHTML = results.map(r => `<div class="card">
           <div class="card-header">
-            <span class="card-type ${r.type}">${r.type}</span>
-            <span class="card-time">${r.created_at} | score: ${r.score.toFixed(2)}</span>
+            <span class="card-type ${escapeHtml(r.type)}">${escapeHtml(r.type)}</span>
+            <span class="card-time">${escapeHtml(r.created_at)} | score: ${r.score.toFixed(2)}</span>
           </div>
           <div class="card-content">${escapeHtml(r.snippet)}</div>
         </div>`).join('');

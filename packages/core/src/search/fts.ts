@@ -96,11 +96,17 @@ export class FtsSearchEngine implements SearchEngine {
           `SELECT id, session_id, type, content, created_at, metadata
            FROM observations
            WHERE session_id = ?
-           AND created_at >= datetime(?, '-${windowMinutes} minutes')
-           AND created_at <= datetime(?, '+${windowMinutes} minutes')
+           AND created_at >= datetime(?, '-' || ? || ' minutes')
+           AND created_at <= datetime(?, '+' || ? || ' minutes')
            ORDER BY created_at ASC`,
         )
-        .all(bound.session_id, bound.min_time, bound.max_time) as TimelineRow[];
+        .all(
+          bound.session_id,
+          bound.min_time,
+          windowMinutes,
+          bound.max_time,
+          windowMinutes,
+        ) as TimelineRow[];
 
       for (const row of rows) {
         results.push({
