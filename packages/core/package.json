@@ -1,6 +1,6 @@
 {
   "name": "@copilot-mem/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core storage and search engine for copilot-mem",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -16,5 +16,15 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.0",
     "@types/uuid": "^10.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charantejmandali18/copilot-mem.git",
+    "directory": "packages/core"
+  },
+  "files": ["dist"]
 }

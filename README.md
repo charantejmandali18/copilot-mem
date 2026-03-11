@@ -3,7 +3,7 @@
 **Persistent memory for GitHub Copilot — never lose context across chat sessions again.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/charantejmandali18/copilot-mem/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://github.com/charantejmandali18/copilot-mem/releases)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 
@@ -224,10 +224,10 @@ open http://localhost:37888/ui
 - [x] MCP server with 5 tools
 - [x] HTTP API + Web viewer
 - [x] VS Code extension (auto-capture, context injection)
-- [ ] AI-based compression (reduce storage, improve search)
-- [ ] Chroma vector search (semantic search)
+- [x] AI-based compression (reduce storage, improve search)
+- [x] Chroma vector search (semantic search)
+- [x] npm package publishing
 - [ ] VS Code Marketplace publishing
-- [ ] npm package publishing
 
 ## Contributing
 

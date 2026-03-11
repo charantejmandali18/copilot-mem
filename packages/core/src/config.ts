@@ -8,6 +8,8 @@ const DEFAULT_CONFIG: CopilotMemConfig = {
   dataDir: path.join(os.homedir(), '.copilot-mem', 'data'),
   autoCapture: true,
   compressionModel: null,
+  compression: null,
+  chroma: null,
   logLevel: 'info',
   contextInjection: true,
   maxContextTokens: 2000,

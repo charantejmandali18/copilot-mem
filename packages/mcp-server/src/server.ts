@@ -9,7 +9,7 @@ import { registerSmartSearchTool } from './tools/smart-search.js';
 export function createMcpServer(core: Core): McpServer {
   const server = new McpServer({
     name: 'copilot-mem',
-    version: '0.1.0',
+    version: '0.2.0',
   });
 
   registerSearchTool(server, core);

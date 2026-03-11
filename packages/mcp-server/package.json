@@ -1,6 +1,6 @@
 {
   "name": "@copilot-mem/mcp-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server and HTTP API for copilot-mem",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,8 +13,18 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@copilot-mem/core": "*",
+    "@copilot-mem/core": "^0.2.0",
     "@modelcontextprotocol/sdk": "^1.24.0",
     "zod": "^3.23.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charantejmandali18/copilot-mem.git",
+    "directory": "packages/mcp-server"
+  },
+  "files": ["dist"]
 }

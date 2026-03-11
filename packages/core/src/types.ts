@@ -50,11 +50,33 @@ export interface CreateObservationInput {
   metadata?: Record<string, unknown>;
 }
 
+export interface CompressionConfig {
+  /** API endpoint URL (e.g., https://api.openai.com/v1/chat/completions) */
+  endpoint: string;
+  /** API key for authentication */
+  apiKey: string;
+  /** Model name (e.g., gpt-4o-mini) */
+  model: string;
+  /** Max tokens for compression output */
+  maxTokens?: number;
+  /** Request timeout in ms */
+  timeoutMs?: number;
+}
+
+export interface ChromaConfig {
+  /** Chroma server URL (default: http://localhost:8000) */
+  host?: string;
+  /** Collection name (default: copilot-mem) */
+  collectionName?: string;
+}
+
 export interface CopilotMemConfig {
   port: number;
   dataDir: string;
   autoCapture: boolean;
   compressionModel: string | null;
+  compression: CompressionConfig | null;
+  chroma: ChromaConfig | null;
   logLevel: 'debug' | 'info' | 'warn' | 'error';
   contextInjection: boolean;
   maxContextTokens: number;

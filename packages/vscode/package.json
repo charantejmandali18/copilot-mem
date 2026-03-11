@@ -2,7 +2,7 @@
   "name": "copilot-mem",
   "displayName": "Copilot Mem",
   "description": "Persistent memory for GitHub Copilot across chat sessions",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "copilot-mem",
   "engines": {
     "vscode": "^1.99.0"

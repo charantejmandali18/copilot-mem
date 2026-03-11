@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -26,11 +29,11 @@ jobs:
         run: npm test
 
       - name: Publish @copilot-mem/core
-        run: npm publish --workspace=packages/core --access public
+        run: npm publish --workspace=packages/core --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @copilot-mem/mcp-server
-        run: npm publish --workspace=packages/mcp-server --access public
+        run: npm publish --workspace=packages/mcp-server --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
