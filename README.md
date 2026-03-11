@@ -71,15 +71,14 @@ Inspired by [claude-mem](https://github.com/thedotmack/claude-mem), copilot-mem 
 npm install -g @copilot-mem/mcp-server
 ```
 
-Then add to your VS Code `settings.json`:
+Then add to your VS Code `.vscode/mcp.json`:
 
 ```json
 {
-  "github.copilot.chat.mcpServers": {
+  "servers": {
     "copilot-mem": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["copilot-mem-server"]
+      "command": "copilot-mem-server"
     }
   }
 }
